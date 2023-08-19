@@ -313,7 +313,7 @@ class _MobileChartState extends State<MobileChart> {
                                                 (1 - (longPressY! - maxHeight * 0.75 - 10) / (maxHeight * 0.25 - 10))),
                                         style: TextStyle(
                                           color: widget.style.secondaryTextColor,
-                                          fontSize: 12,
+                                          fontSize: 10,
                                         ),
                                       ),
                                     ),
@@ -408,7 +408,7 @@ class _MobileChartState extends State<MobileChart> {
                             "Auto",
                             style: TextStyle(
                               color: widget.style.secondaryTextColor,
-                              fontSize: 12,
+                              fontSize: 10,
                             ),
                           ),
                           onPressed: manualScaleHigh == null
