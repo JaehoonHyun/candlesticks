@@ -31,8 +31,7 @@ class PriceColumn extends StatefulWidget {
 class _PriceColumnState extends State<PriceColumn> {
   ScrollController scrollController = new ScrollController();
 
-  double calculatePriceIndicatorTopPadding(
-      double chartHeight, double low, double high) {
+  double calculatePriceIndicatorTopPadding(double chartHeight, double low, double high) {
     return chartHeight +
         10 -
         (widget.lastCandle.close - low) / (high - low) * chartHeight -
@@ -41,15 +40,13 @@ class _PriceColumnState extends State<PriceColumn> {
 
   @override
   Widget build(BuildContext context) {
-    final double priceScale = HelperFunctions.calculatePriceScale(
-        widget.chartHeight, widget.high, widget.low);
-    final double priceTileHeight =
-        widget.chartHeight / ((widget.high - widget.low) / priceScale);
+    final double priceScale = HelperFunctions.calculatePriceScale(widget.chartHeight, widget.high, widget.low);
+    final double priceTileHeight = widget.chartHeight / ((widget.high - widget.low) / priceScale);
     final double newHigh = (widget.high ~/ priceScale + 1) * priceScale;
-    final double top = -priceTileHeight / priceScale * (newHigh - widget.high) +
-        MAIN_CHART_VERTICAL_PADDING -
-        priceTileHeight / 2;
+    final double top =
+        -priceTileHeight / priceScale * (newHigh - widget.high) + MAIN_CHART_VERTICAL_PADDING - priceTileHeight / 2;
     return GestureDetector(
+      //! 여기가 스케일 조절하는 곳 details.delta.dy에 따라서 스케일 조절,
       onVerticalDragUpdate: (details) {
         widget.onScale(details.delta.dy);
       },
@@ -59,8 +56,7 @@ class _PriceColumnState extends State<PriceColumn> {
             AnimatedPositioned(
               duration: Duration(milliseconds: 300),
               top: top,
-              height:
-                  widget.chartHeight + 2 * MAIN_CHART_VERTICAL_PADDING - top,
+              height: widget.chartHeight + 2 * MAIN_CHART_VERTICAL_PADDING - top,
               width: widget.width,
               child: ListView(
                 controller: scrollController,
@@ -105,9 +101,7 @@ class _PriceColumnState extends State<PriceColumn> {
               child: Row(
                 children: [
                   Container(
-                    color: widget.lastCandle.isBull
-                        ? widget.style.primaryBull
-                        : widget.style.primaryBear,
+                    color: widget.lastCandle.isBull ? widget.style.primaryBull : widget.style.primaryBear,
                     child: Center(
                       child: Text(
                         HelperFunctions.priceToString(widget.lastCandle.close),
