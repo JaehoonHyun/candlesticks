@@ -70,9 +70,10 @@ class _CandlesticksState extends State<Candlesticks> {
   double lastX = 0;
   int lastIndex = -10;
 
+  //! JAEHOON candle width을 정함으로써, candle 스케일을 조절 가능
   /// candleWidth controls the width of the single candles.
   ///  range: [2...10]
-  double candleWidth = 6;
+  double candleWidth = 4;
 
   /// true when widget.onLoadMoreCandles is fetching new candles.
   bool isCallingLoadMore = false;

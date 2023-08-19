@@ -118,7 +118,7 @@ class _MobileChartState extends State<MobileChart> {
         }
 
         // calculate priceScale
-        //! 여기가 price 캔들 조절하는 곳
+        //! JAEHOON: 여기가 price 캔들 조절하는 곳
         // double chartHeight = maxHeight * 0.75 - 2 * MAIN_CHART_VERTICAL_PADDING;
         double chartHeight = maxHeight - 2 * MAIN_CHART_VERTICAL_PADDING;
 
